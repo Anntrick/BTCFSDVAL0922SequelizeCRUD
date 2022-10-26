@@ -3,6 +3,8 @@ const router = express.Router()
 
 const Usuario = require('../models/usuario')
 
+const db = require('../db/db')
+
 
 // CRUD READ
 router.get('/', (req, res) => {
@@ -10,6 +12,14 @@ router.get('/', (req, res) => {
         where: { sexo: 'Mujer' },
         limit: 1
     })
+    .then(resp => {
+        res.send(resp)
+    })
+})
+
+// READ con sentencia SQL, query es una función de la clase Sequelize que hemos instanciado en db.js
+router.get('/mujeres', (req, res) => {
+    db.query('SELECT * FROM usuario WHERE sexo = "Mujer";')
     .then(resp => {
         res.send(resp)
     })

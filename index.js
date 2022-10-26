@@ -1,31 +1,25 @@
 const express = require('express')
-
 const app = express()
-
 const db = require('./db/db')
 const Perfil = require('./models/perfil')
-
 const router = require('./router')
-
+require('./models/associations')
 
 const PORT = 3000
 
 //middleware
 app.use(express.json())
-
 app.use(router)
-
-
-
-
-// app.get('/mujeres', (req, res) => {
-//     sequelize.query('SELECT * FROM usuario WHERE sexo = "Mujer";')
-//     .then(resp => {
-//         res.send(resp)
-//     })
-// })
 
 
 app.listen(PORT, ()=> {
     console.log(`Servidor arrancado en el puerto ${PORT}` )
+
+    //con sync({force: true}) se sincroniza sequelize con nuestra DB, force hace que pueda sobreescribir tablas
+    //con authenticate no sobreescribe y es más ligero, pero también se sincroniza
+    db.authenticate().then(()=> {
+        console.log("Conectados a la DB")
+    }).catch(error => {
+        console.log('Se ha producido un error: ' + error)
+    })
 })
