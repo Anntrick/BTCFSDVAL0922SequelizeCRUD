@@ -3,21 +3,16 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('usuario', {
-      mail: {
-        type: Sequelize.STRING,
+    await queryInterface.createTable('comentario', {
+      id_comentario: {
+        type: Sequelize.INTEGER,
         primaryKey: true,
+        autoIncrement: true,
         allowNull: false
       },
-      foto: Sequelize.STRING,
-      sexo: Sequelize.ENUM('Hombre', 'Mujer', 'Otro'),
-      fecha_nacimiento: Sequelize.DATEONLY,
-      telefono: {
-        type: Sequelize.STRING
-      },
-      contrasena: {
-        type: Sequelize.STRING
-      }
+      fecha: Sequelize.DATE,
+      likes: Sequelize.INTEGER,
+      texto: Sequelize.TEXT
     });
 
   },

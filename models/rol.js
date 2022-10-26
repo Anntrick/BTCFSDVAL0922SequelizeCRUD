@@ -14,8 +14,6 @@ module.exports = (sequelize, DataTypes) => {
       autoIncrement: true
     },
     nombre: DataTypes.STRING
-
-    
   }, {
     sequelize,
     modelName: 'rol',

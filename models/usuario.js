@@ -15,7 +15,7 @@ Usuario.init({
     },
     foto: DataTypes.STRING,
     sexo: DataTypes.ENUM('Hombre', 'Mujer','Otro'),
-    fecha_nacimiento: DataTypes.DATE,
+    fecha_nacimiento: DataTypes.DATEONLY,
     telefono: {
         type: DataTypes.STRING,
         validate: {
