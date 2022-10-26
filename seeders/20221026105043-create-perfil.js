@@ -11,7 +11,7 @@ module.exports = {
         seguidores: 10,
         seguidos: 10,
         biografia: "Esta es el perfil de Lucia",
-        //usuarioMail: "lucia@gmail.com"
+        usuarioMail: "lucia@gmail.com"
       },
       {
         nomUsuario: "Paquito",
@@ -19,7 +19,7 @@ module.exports = {
         seguidores: 10,
         seguidos: 10,
         biografia: "Esta es el perfil de Paco",
-        //usuarioMail: "paco@gmail.com"
+        usuarioMail: "paco@gmail.com"
       },
     ], {});
 

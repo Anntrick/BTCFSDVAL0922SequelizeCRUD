@@ -12,7 +12,25 @@ module.exports = {
       },
       fecha: Sequelize.DATE,
       likes: Sequelize.INTEGER,
-      texto: Sequelize.TEXT
+      texto: Sequelize.TEXT,
+      perfilNomUsuario: {
+        type: Sequelize.STRING,
+        references: {
+          model: 'Perfil',
+          key: 'nomUsuario'
+        },
+        onDelete: 'cascade',
+        onUpdate: 'cascade'
+      },
+      publicacionIdPublicacion: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Publicacion',
+          key: 'id_publicacion'
+        },
+        onDelete: 'cascade',
+        onUpdate: 'cascade'
+      }
     });
 
   },

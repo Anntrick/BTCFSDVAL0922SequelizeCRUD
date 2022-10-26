@@ -12,7 +12,16 @@ module.exports = {
       nombre: Sequelize.STRING,
       seguidos: Sequelize.INTEGER,
       seguidores: Sequelize.INTEGER,
-      biografia: Sequelize.TEXT
+      biografia: Sequelize.TEXT,
+      usuarioMail: {
+        type: Sequelize.STRING,
+        references: {
+          model: 'Usuario',
+          key: 'mail'
+        },
+        onDelete: 'cascade',
+        onUpdate: 'cascade'
+      }
     });
   },
 
