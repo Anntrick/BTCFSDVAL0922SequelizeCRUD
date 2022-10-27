@@ -17,6 +17,8 @@ router.get('/', (req, res) => {
     })
 })
 
+
+
 // READ con sentencia SQL, query es una función de la clase Sequelize que hemos instanciado en db.js
 router.get('/mujeres', (req, res) => {
     db.query('SELECT * FROM usuario WHERE sexo = "Mujer";')

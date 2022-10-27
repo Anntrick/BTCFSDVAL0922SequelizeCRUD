@@ -4,11 +4,13 @@ const db = require('./db/db')
 const Perfil = require('./models/perfil')
 const router = require('./router')
 require('./models/associations')
+const returnHi = require('./middlewares/returnHi')
 
 const PORT = 3000
 
 //middleware
 app.use(express.json())
+app.use(returnHi)
 app.use(router)
 
 
